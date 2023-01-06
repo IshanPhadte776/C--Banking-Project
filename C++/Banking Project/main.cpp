@@ -80,6 +80,7 @@ int main() {
     string customerDataObject[4];
     Customer customer;
     Account account;
+    int intOnLine;
     bool loggedIntoAccount = false;
     
    //https://stackoverflow.com/questions/13035674/how-to-read-a-file-line-by-line-or-a-whole-text-file-at-once
@@ -126,30 +127,51 @@ int main() {
 
         while (userInput != "quit"){
             cout << "Hello" + customer.getName();
-            cout << "Type 'quit' to finish working with the account" ;
-            cout << "Type '+n' to deposit money to the account where n is dollar amount" ;
-            cout << "Type '-n' to withdraw money to the account where n is dollar amount" ;
+            cout << "Type 'quit' to finish working with the account /n" ;
+            cout << "Type 'deposit' to deposit money to the account /n" ;
+            cout << "Type 'withdraw' to withdraw money to the account where n is dollar amount /n" ;
             cin >> textOnLine; 
 
-            /*
-            if () { // pos=0 limits the search to the prefix
-            // s starts with prefix
+            
+            if (textOnLine == "deposit") { 
+                cout << "Type in the amount of money you want to deposit to the account /n" ;
+                cin >> intOnLine; 
 
+                //checks if the input was an int 
+                if (!intOnLine) {
+                    account.increaseBalance(intOnLine);
+                    cout << "Your new balance is " + account.getBalance();
+                }
+
+                else {
+                    cout << "Type in a valid input /n" ;
+                }
 
             }
 
-            else if () {
+            else if (textOnLine == "withdraw") {
+                cout << "Type in the amount of money you want to withdraw to the account /n" ;
+                cin >> intOnLine; 
+
+                if (!intOnLine) {
+                    if (intOnLine > account.getBalance()){
+                        cout << "You can't withdraw more money then what is already in the account /n" ;
+                    }
+
+                    else {
+                        account.decreaseBalance(intOnLine);
+                        cout << "Your new balance is " + account.getBalance();
+                    }
+                }
+
+                else {
+                    cout << "Type in a valid input /n" ;
+                }
 
             }
 
-            */
-
-
-    
         }
 
         cout << "Good Bye" + customer.getName() ;
-
-
     
 }

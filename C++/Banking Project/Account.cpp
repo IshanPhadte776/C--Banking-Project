@@ -10,11 +10,23 @@ class Account {
   }
 
   Account (){
-    
+
   } 
 
   ~Account() {
     cout << "Calling the Destructor" <<endl
   ;}
+
+  int getBalance(){
+    return balance;
+  }
+
+  void increaseBalance(int addedMoney){
+    balance = balance + addedMoney;
+  }
+
+  void decreaseBalance(int addedMoney){
+    balance = balance - addedMoney;
+  }
 
 };
