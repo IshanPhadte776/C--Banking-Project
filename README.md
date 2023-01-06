@@ -14,7 +14,7 @@ Basic Banking Application where a user (Customer) can sign in via the Command Li
 
 Issues 
 
-Returning an Array and Storing the Content in a variable (Banking Project, main.cpp, line 112                 customerDataObject = createUserData(textOnLine);
+Returning an Array and Storing the Content in a variable (Banking Project, main.cpp, line 113                 customerDataObject = createUserData(textOnLine);
 
 2 Folders - Banking Project and Basics 
 
