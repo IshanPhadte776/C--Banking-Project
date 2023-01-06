@@ -7,6 +7,10 @@ class Account {
 
   Account(int money) {
     balance = money;
+  }
+
+  Account (){
+    
   } 
 
   ~Account() {

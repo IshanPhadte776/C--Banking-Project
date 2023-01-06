@@ -13,7 +13,7 @@ using namespace std;
 
 //This method works (returns 0 and 1)
 bool verifyUserNamePassword (string textOnLine, string username, string password){
-    string  arrayToStoreCustomerData[5];
+    string  arrayToStoreCustomerData[4];
      
 
     int i = 0;
@@ -36,7 +36,7 @@ bool verifyUserNamePassword (string textOnLine, string username, string password
 string* createUserData(string textOnLine) {
 
     //I understand u should work with pointers
-    string arrayToStoreCustomerDataForObject[5];
+    string arrayToStoreCustomerDataForObject[4];
     int i = 0;
     stringstream sssin(textOnLine);
     while (sssin.good() && i < 5){
@@ -49,7 +49,7 @@ string* createUserData(string textOnLine) {
 
 
 
-int findAccountBalance (string accountName){
+int findAccountBalance (string accountID){
     ifstream MyAccountFile("accountStorage.txt");
     string textOnAccountLine;
     stringstream ss;
@@ -64,7 +64,7 @@ int findAccountBalance (string accountName){
                 ++i;
             }
 
-        if (arrayToStoreAccountData[0] == accountName) {
+        if (arrayToStoreAccountData[0] == accountID) {
             MyAccountFile.close();
             ss << arrayToStoreAccountData[1];
             ss >> balance;
@@ -76,7 +76,10 @@ int findAccountBalance (string accountName){
 int main() {
     string username; 
     string password;
-    string customerDataObject[5];
+    string userInput;
+    string customerDataObject[4];
+    Customer customer;
+    Account account;
     bool loggedIntoAccount = false;
     
    //https://stackoverflow.com/questions/13035674/how-to-read-a-file-line-by-line-or-a-whole-text-file-at-once
@@ -108,25 +111,45 @@ int main() {
                 //I made a work around (Don't use a method, just run the functionally of the code here)
                 customerDataObject = createUserData(textOnLine);
 
-                string nameOfObject = customerDataObject[0];
+                string accountID = customerDataObject[0];
 
-                //IDK how to create Objects of custom classes and assign attitudes to them
-                Customer nameOfObject = Customer(customerDataObject[1],Account(0),customerDataObject[3],customerDataObject[4]);
-
-                nameOfObject.name = customerDataObject[1];
-                customerDataObject[0].account = customerDataObject[2];
-                customerDataObject[0].username = customerDataObject[3];
-                customerDataObject[0].password = customerDataObject[4];
-
+                Account account = Account(findAccountBalance(accountID));
+                Customer customer = Customer(customerDataObject[0],customerDataObject[1],customerDataObject[2],customerDataObject[3]);
 
                 //Fix this later
-                customerDataObject[2].balance = findAccountBalance(customerDataObject[2]);
-
                 loggedIntoAccount = true;
                 
             }
 
         }
+
+
+        while (userInput != "quit"){
+            cout << "Hello" + customer.getName();
+            cout << "Type 'quit' to finish working with the account" ;
+            cout << "Type '+n' to deposit money to the account where n is dollar amount" ;
+            cout << "Type '-n' to withdraw money to the account where n is dollar amount" ;
+            cin >> textOnLine; 
+
+            /*
+            if () { // pos=0 limits the search to the prefix
+            // s starts with prefix
+
+
+            }
+
+            else if () {
+
+            }
+
+            */
+
+
+    
+        }
+
+        cout << "Good Bye" + customer.getName() ;
+
 
     
 }

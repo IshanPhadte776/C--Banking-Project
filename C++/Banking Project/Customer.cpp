@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+#include "Human.cpp"
 
 class Account;
 
@@ -7,22 +8,33 @@ class Account;
 class Customer: public Human {       
 
   private:
+    string accountID;
     string name;
-    Account account;
     string username;
     string password;
 
   public:             
-    Customer (string listedName, Account acc, string usrname, string pword) {
+    Customer (string uniqueAccountID,string listedName, string usrname, string pword) {
+      accountID = uniqueAccountID;
       name = listedName;
-      account = acc;
       username = usrname;
       password = pword;
+    }
+
+    Customer () {
+      //accountID = uniqueAccountID;
+      //name = listedName;
+    //  username = usrname;
+      //password = pword;
     }
 
     ~Customer() {
       cout << "Calling the Destructor" <<endl
     ;}
+
+    string getName() {
+      return name;
+    }
 };
 
 
