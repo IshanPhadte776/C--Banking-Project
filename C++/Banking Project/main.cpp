@@ -92,6 +92,7 @@ int main() {
 
     cout << "Hello User";
 
+    //while loop to log the user in
     while (!loggedIntoAccount)
     {
         //This insert username / password portion works 
@@ -125,7 +126,8 @@ int main() {
         }
 
 
-        while (userInput != "quit"){
+    //allows user to input text in terminal to add/subtract money from account
+    while (userInput != "quit"){
             cout << "Hello" + customer.getName();
             cout << "Type 'quit' to finish working with the account /n" ;
             cout << "Type 'deposit' to deposit money to the account /n" ;
