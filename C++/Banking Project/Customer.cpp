@@ -22,14 +22,10 @@ class Customer: public Human {
     }
 
     Customer () {
-      //accountID = uniqueAccountID;
-      //name = listedName;
-    //  username = usrname;
-      //password = pword;
     }
 
     ~Customer() {
-      cout << "Calling the Destructor" <<endl
+      //cout << "Calling the Customer Destructor" <<endl
     ;}
 
     string getName() {

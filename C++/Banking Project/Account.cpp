@@ -14,7 +14,7 @@ class Account {
   } 
 
   ~Account() {
-    cout << "Calling the Destructor" <<endl
+    //cout << "Calling the Account Destructor" <<endl
   ;}
 
   int getBalance(){
@@ -22,7 +22,13 @@ class Account {
   }
 
   void increaseBalance(int addedMoney){
+    cout << "in the method";
+    cout << addedMoney;
+    cout << balance;
+
     balance = balance + addedMoney;
+    cout << balance;
+
   }
 
   void decreaseBalance(int addedMoney){
